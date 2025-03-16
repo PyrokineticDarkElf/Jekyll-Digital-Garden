@@ -1,0 +1,53 @@
+<div class="stats-container">
+  <div class="stats-card">
+    <div class="stats-label-wrapper">
+      <span class="material-icons">sticky_note_2</span>
+      <span class="stats-label">Notes</span>
+    </div>
+    <span class="stats-value">{{ site.notes | size }}</span>
+  </div>
+
+  <div class="stats-card">
+    <div class="stats-label-wrapper">
+      <span class="material-icons">folder</span>
+      <span class="stats-label">Categories</span>
+    </div>
+    {% assign unique_categories = "" | split: "" %}
+    {% for note in site.notes %}
+      {% if note.category %}
+        {% unless unique_categories contains note.category %}
+          {% assign unique_categories = unique_categories | push: note.category %}
+        {% endunless %}
+      {% endif %}
+    {% endfor %}
+    <span class="stats-value">{{ unique_categories | size }}</span>
+  </div>
+
+  <div class="stats-card">
+    <div class="stats-label-wrapper">
+      <span class="material-icons">label</span>
+      <span class="stats-label">Topics</span>
+    </div>
+    {% assign unique_tags = "" | split: "" %}
+    {% for note in site.notes %}
+      {% for tag in note.tags %}
+        {% unless unique_tags contains tag %}
+          {% assign unique_tags = unique_tags | push: tag %}
+        {% endunless %}
+      {% endfor %}
+    {% endfor %}
+    <span class="stats-value">{{ unique_tags | size }}</span>
+  </div>
+
+  <div class="stats-card">
+    <div class="stats-label-wrapper">
+      <span class="material-icons">calendar_month</span>
+      <span class="stats-label">Days Growing</span>
+    </div>
+    {% assign start_date = "2023-04-01" | date: "%s" %}
+    {% assign current_date = "now" | date: "%s" %}
+    {% assign seconds_since = current_date | minus: start_date %}
+    {% assign days_growing = seconds_since | divided_by: 86400 %}
+    <span class="stats-value">{{ days_growing }}</span>
+  </div>
+</div>

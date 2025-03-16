@@ -1,0 +1,169 @@
+/* Callouts */
+.callout {
+    --callout-border-width: 0.5rem;
+    --callout-border-opacity: 0.25;
+    --callout-padding: var(--blockquote-padding);
+    --callout-radius: var(--card-rad);
+    --callout-title-color: inherit;
+    --callout-title-size: var(--h5);
+
+    --callout-default-color: var(--color-blue-rgb);
+    --callout-default-icon: "🧠";
+
+    --callout-bug: var(--color-red-rgb);
+    --callout-con: var(--color-red-rgb);
+    --callout-download: var(--color-blue-rgb);
+    --callout-error: var(--color-red-rgb);
+    --callout-example: var(--color-purple-rgb);
+    --callout-fail: var(--color-red-rgb);
+    --callout-important: var(--color-cyan-rgb);
+    --callout-info: var(--color-blue-rgb);
+    --callout-link: var(--color-blue-rgb);
+    --callout-note: var(--color-blue-rgb);
+    --callout-pro: var(--color-green-rgb);
+    --callout-question: var(--color-orange-rgb);
+    --callout-success: var(--color-green-rgb);
+    --callout-summary: var(--color-cyan-rgb);
+    --callout-tip: var(--color-cyan-rgb);
+    --callout-todo: var(--color-blue-rgb);
+    --callout-warning: var(--color-orange-rgb);
+    --callout-quote: 158, 158, 158;
+}
+
+.callout .callout-title-wrapper {
+    display: flex;
+    column-gap: 0.5em;
+}
+
+.callout .callout-title {
+    font-size: var(--callout-title-size);
+    color: var(--callout-title-color);
+    font-weight: bold;
+}
+
+.callout .callout-content {
+    margin-top: 1em;
+}
+
+/* Types */
+.callout {
+    --callout-color: var(--callout-default-color);
+    --callout-icon: var(--callout-default-icon);
+}
+
+.callout[data-callout="abstract"],
+.callout[data-callout="summary"],
+.callout[data-callout="tldr"] {
+    --callout-color: var(--callout-summary);
+    --callout-icon: "📋";
+}
+
+.callout[data-callout="info"] {
+    --callout-color: var(--callout-info);
+    --callout-icon: "ℹ️";
+}
+
+.callout[data-callout="todo"] {
+    --callout-color: var(--callout-todo);
+    --callout-icon: "☑️";
+}
+
+.callout[data-callout="important"] {
+    --callout-color: var(--callout-important);
+    --callout-icon: "❗️";
+}
+
+.callout[data-callout="tip"],
+.callout[data-callout="hint"] {
+    --callout-color: var(--callout-tip);
+    --callout-icon: "🔥";
+}
+
+.callout[data-callout="success"],
+.callout[data-callout="check"],
+.callout[data-callout="done"] {
+    --callout-color: var(--callout-success);
+    --callout-icon: "✅";
+}
+
+.callout[data-callout="question"],
+.callout[data-callout="help"],
+.callout[data-callout="faq"] {
+    --callout-color: var(--callout-question);
+    --callout-icon: "❓";
+}
+
+.callout[data-callout="warning"],
+.callout[data-callout="caution"],
+.callout[data-callout="attention"] {
+    --callout-color: var(--callout-warning);
+    --callout-icon: "⚠️";
+}
+
+.callout[data-callout="failure"],
+.callout[data-callout="fail"],
+.callout[data-callout="missing"] {
+    --callout-color: var(--callout-fail);
+    --callout-icon: "❌";
+}
+
+.callout[data-callout="danger"],
+.callout[data-callout="error"] {
+    --callout-color: var(--callout-error);
+    --callout-icon: "⚡";
+}
+
+.callout[data-callout="bug"] {
+    --callout-color: var(--callout-bug);
+    --callout-icon: "🐛";
+}
+
+.callout[data-callout="example"] {
+    --callout-color: var(--callout-example);
+    --callout-icon: "📄";
+}
+
+.callout[data-callout="quote"],
+.callout[data-callout="cite"] {
+    --callout-color: var(--callout-quote);
+    --callout-icon: "💬";
+}
+.callout[data-callout="note"] {
+    --callout-color: var(--callout-note);
+    --callout-icon: "✏️";
+}
+
+.callout[data-callout="pro"] {
+    --callout-color: var(--callout-pro);
+    --callout-icon: "👍";
+}
+.callout[data-callout="con"] {
+    --callout-color: var(--callout-con);
+    --callout-icon: "👎";
+}
+.callout[data-callout="link"] {
+    --callout-color: var(--callout-link);
+    --callout-icon: "🔗";
+}
+
+.callout[data-callout="download"] {
+    --callout-color: var(--callout-download);
+    --callout-icon: "⬇️";
+}
+
+/* Set background color */
+blockquote.callout {
+    background-color: rgba(var(--callout-color), 0.1);
+    border-left: var(--callout-border-width) solid rgba(var(--callout-color), var(--callout-border-opacity));
+    padding: var(--callout-padding);
+    border-radius: var(--callout-radius);
+}
+
+blockquote.callout mark {
+    background-color: rgba(var(--callout-color), 0.5);
+}
+
+/* Callout styles from Obsidian */
+.callout .callout-icon:before {
+    content: var(--callout-icon);
+}
